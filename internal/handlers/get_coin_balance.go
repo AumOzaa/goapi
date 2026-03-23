@@ -9,17 +9,23 @@ import (
 	"github.com/AumOzaa/goapi/internal/tools"
 	"github.com/gorilla/schema"
 	log "github.com/sirupsen/logrus"
+
+	"fmt"
 )
 
 func GetCoinBalance(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("\nIn teh get coin balance")
 	var params = api.CoinBalanceParams{} // getting the values from
+	fmt.Printf("The value of params is %v", params)
 
 	var decoder *schema.Decoder = schema.NewDecoder()
 	var err error
 
 	err = decoder.Decode(&params, r.URL.Query()) // Grab the params from the url, and set the to the values in the struct
 
-	if err != nil {
+	fmt.Printf("\nRuntime : The value of decoder is : %v", err)
+
+	if err != nil { // woild be use when there is an error in decoding the params
 		log.Error(err)
 		api.InternalErrorHandler(w)
 		return

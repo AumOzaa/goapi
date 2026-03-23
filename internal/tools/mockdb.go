@@ -1,6 +1,8 @@
 package tools
 
 import (
+	"fmt"
+	// "honnef.co/go/tools/printf"
 	"time"
 )
 
@@ -47,7 +49,9 @@ func (d *mockDB) GetUserLoginDetails(username string) *LoginDetails {
 	time.Sleep(time.Second * 1)
 
 	var clientData = LoginDetails{}
+	fmt.Printf("\nRUN-TIME : Rn the client data is %v\n", clientData)
 	clientData, ok := mockLoginDetails[username]
+	fmt.Printf("\nAnd now the client details is %v\n", clientData)
 	if !ok {
 		return nil
 	}

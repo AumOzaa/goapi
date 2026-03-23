@@ -2,6 +2,7 @@ package api
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
 )
 
@@ -28,6 +29,7 @@ type Error struct {
 }
 
 func writeError(w http.ResponseWriter, message string, code int) {
+	fmt.Println("\nIn the api.go file")
 	resp := Error{
 		Code:    code,
 		Message: message,
@@ -41,9 +43,11 @@ func writeError(w http.ResponseWriter, message string, code int) {
 
 var (
 	RequestErrorHandler = func(w http.ResponseWriter, err error) {
+		fmt.Println("Request error handler")
 		writeError(w, err.Error(), http.StatusBadRequest)
 	}
 	InternalErrorHandler = func(w http.ResponseWriter) {
+		fmt.Println("\n Internal Error too")
 		writeError(w, "An unexpected Error occured.", http.StatusInternalServerError) // This is a general error message
 	}
 )
