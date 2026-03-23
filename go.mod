@@ -3,7 +3,7 @@ module github.com/AumOzaa/goapi
 go 1.26.1
 
 require (
-	github.com/avukadin/goapi v0.0.0-20230822123528-a98a49676213
+	github.com/AumOzaa/goapi v0.0.0-20230822123528-a98a49676213
 	github.com/go-chi/chi v1.5.5
 	github.com/sirupsen/logrus v1.9.4
 )

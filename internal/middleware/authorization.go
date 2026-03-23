@@ -4,8 +4,8 @@ import (
 	"errors"
 	"net/http"
 
-	"github.com/avukadin/goapi/api"
-	"github.com/avukadin/goapi/internal/middleware"
+	"github.com/AumOzaa/goapi/api"
+	"github.com/AumOzaa/goapi/internal/middleware"
 	"github.com/go-chi/chi"
 	log "github.com/sirupen/logrus"
 )

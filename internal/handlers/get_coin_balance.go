@@ -5,8 +5,8 @@ import (
 	"go/token"
 	"net/http"
 
-	"github.com/avukadin/goapi/api"
-	"github.com/avukadin/goapi/interanls/tools"
+	"github.com/AumOzaa/goapi/api"
+	"github.com/AumOzaa/goapi/interanls/tools"
 	"github.com/gorilla/schema"
 	log "github.com/sirupsen/logrus"
 )
