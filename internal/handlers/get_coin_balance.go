@@ -2,7 +2,7 @@ package handlers
 
 import (
 	"encoding/json"
-	"go/token"
+	// "go/token"
 	"net/http"
 
 	"github.com/AumOzaa/goapi/api"
@@ -32,7 +32,7 @@ func GetCoinBalance(w http.ResponseWriter, r *http.Request) {
 	}
 
 	var tokenDetails *tools.CoinDetails
-	tokenDetails = (*&database).GetUserCoins(params.Username)
+	tokenDetails = (*database).GetUserCoins(params.Username)
 	if tokenDetails == nil {
 		log.Error(err)
 		api.InternalErrorHandler(w)

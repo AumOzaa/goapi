@@ -32,21 +32,9 @@ var mockCoinDetails = map[string]CoinDetails{
 func (d *mockDB) GetUserCoins(username string) *CoinDetails {
 	time.Sleep(time.Second * 1)
 
-	var clientData = coinDetails{}
-	clientData, ok := mockCoinDetails[username]
-
-	if !ok {
-		return nil
-	}
-
-	return &clientData
-}
-
-func (d *mockDB) GetUserCoins(username string) *CoinDetails {
-	time.Sleep(time.Second * 1)
-
 	var clientData = CoinDetails{}
 	clientData, ok := mockCoinDetails[username]
+
 	if !ok {
 		return nil
 	}
@@ -54,6 +42,31 @@ func (d *mockDB) GetUserCoins(username string) *CoinDetails {
 	return &clientData
 }
 
-func (d *mockDB) SetupDatabase() error {
+func (d *mockDB) GetUserLoginDetails(username string) *LoginDetails {
+	// Simulate DB call
+	time.Sleep(time.Second * 1)
+
+	var clientData = LoginDetails{}
+	clientData, ok := mockLoginDetails[username]
+	if !ok {
+		return nil
+	}
+
+	return &clientData
+}
+
+// func (d *mockDB) GetUserCoins(username string) *CoinDetails {
+// 	time.Sleep(time.Second * 1)
+//
+// 	var clientData = CoinDetails{}
+// 	clientData, ok := mockCoinDetails[username]
+// 	if !ok {
+// 		return nil
+// 	}
+//
+// 	return &clientData
+// }
+
+func (d *mockDB) SetUpDatabase() error {
 	return nil
 }

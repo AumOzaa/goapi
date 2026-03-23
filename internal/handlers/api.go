@@ -15,7 +15,7 @@ func Handler(r *chi.Mux) {
 
 		router.Use(middleware.Authorization) // TODO: Need to add this later
 
-		router.Get("/coins", GetCoinsBalance) // TODO: Define th GetCoinBalance function
+		router.Get("/coins", GetCoinBalance) // TODO: Define th GetCoinBalance function
 
 	})
 }

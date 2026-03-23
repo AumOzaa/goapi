@@ -2,7 +2,7 @@ package tools
 
 import (
 	log "github.com/sirupsen/logrus"
-	"github.com/stretchr/testify/mock"
+	// "github.com/stretchr/testify/mock"
 )
 
 type LoginDetails struct {
