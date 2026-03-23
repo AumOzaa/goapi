@@ -4,6 +4,7 @@ import (
 	"errors"
 	"net/http"
 
+	"github.com/avukadin/goapi/api"
 	"github.com/avukadin/goapi/internal/middleware"
 	"github.com/go-chi/chi"
 	log "github.com/sirupen/logrus"
@@ -18,6 +19,28 @@ func Authorization(next http.Handler) http.Handler {
 		var err error
 
 		if username == "" || token == "" {
+			log.Error(UnAuthorizedError)
+			api.RequestErrorHandler(w, UnAuthorizedError)
 		}
+		var database *tools.DatabaseInterface
+		database, err = tools.NewDatabase()
+
+		if err != nil {
+			api.InternalErrorHandler(w)
+			return
+		}
+
+		//query the database :
+		var loginDetails *tools.LoginDetails
+		loginDetails = (*database).GetUserLoginDetails(username)
+
+		// if not found the client
+		if loginDetails == nil || (token != (*loginDetails).AuthToken) {
+			log.Error(UnAuthorizedError)
+			api.RequestErrorHandler(w, UnAuthorizedError)
+			return
+		}
+
+		next.ServeHTTP(w, r) // calls the next middleware in line THi'd call the GetCOinBalance func
 	})
 }
