@@ -25,7 +25,7 @@ func NewDatabase() (*DatabaseInterface, error) {
 	log.Printf("\nRUN-TIME: The new database is initialized\n")
 
 	var database DatabaseInterface = &mockDB{}
-	log.Printf("\nThe value of the current database is : %v\n", database)
+	log.Printf("\nThe value of the current database is : %p\n", database)
 
 	var err error = database.SetUpDatabase()
 

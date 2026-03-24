@@ -16,7 +16,7 @@ var UnAuthorizedError = errors.New("Invalid username or token")
 func Authorization(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 
-		fmt.Println("In the authorization")
+		fmt.Println("RUN-TIME : In the authorization")
 		var username string = r.URL.Query().Get("username")
 		fmt.Printf("\nTHe username is : %v\n", username)
 		var token = r.Header.Get("Authorization")
